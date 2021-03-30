@@ -1,5 +1,5 @@
 
-# react-native-alive-view
+# 易盾活体检测RN接入使用文档
 
 ## Getting started
 
