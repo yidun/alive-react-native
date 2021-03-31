@@ -7,14 +7,13 @@ import android.widget.FrameLayout;
 
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.netease.nis.alivedetected.AliveDetector;
+import com.netease.nis.alivedetected.NISCameraPreview;
 
 /**
  * Created by hzhuqi on 2020/8/21
  */
 public class RNAliveViewManager extends SimpleViewManager<FrameLayout> {
-    private static final String NAME = "RNAliveView";
-    public static final String TAG = "RNAlive";
+    private static final String NAME = "NTESRNLiveDetect";
 
     @Override
     public String getName() {
@@ -23,17 +22,20 @@ public class RNAliveViewManager extends SimpleViewManager<FrameLayout> {
 
     @Override
     protected FrameLayout createViewInstance(ThemedReactContext reactContext) {
-        Log.d(TAG, "======createViewInstance======");
+        Log.d(AliveHelper.TAG, "======createViewInstance======");
         Context context = reactContext.getApplicationContext();
-        return (FrameLayout) LayoutInflater.from(reactContext).inflate(getLayoutId(context), null);
+        FrameLayout cameraPreview = (FrameLayout) LayoutInflater.from(reactContext).inflate(getLayoutId(context), null);
+        NISCameraPreview aliveView = cameraPreview.findViewById(R.id.surface_view);
+        AliveHelper.getInstance().setPreView(aliveView);
+        return cameraPreview;
     }
 
     @Override
     public void onDropViewInstance(FrameLayout preview) {
-        Log.d(TAG, "======onDropViewInstance======");
+        Log.d(AliveHelper.TAG, "======onDropViewInstance======");
 
-        AliveDetector.getInstance().stopDetect();
-        AliveDetector.getInstance().destroy();
+        AliveHelper.getInstance().stopDetected();
+        AliveHelper.getInstance().destroy();
     }
 
     private int getLayoutId(Context context) {

@@ -1,6 +1,6 @@
 
 import { NativeModules } from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
-const { RNAliveView } = NativeModules;
-
-export default RNAliveView;
+export default NativeModules.AliveHelper;
+module.exports = requireNativeComponent('NTESRNLiveDetect');
