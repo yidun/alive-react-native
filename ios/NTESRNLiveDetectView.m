@@ -25,16 +25,16 @@
     return sharedObject;
 }
 
-- (void)startLiveDetect {
+- (void)startLiveDetect:(NSString *)businessID timeout:(int)timeout {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self stopDetect];
     self.detector = [[NTESLiveDetectManager alloc] initWithImageView:self withDetectSensit:NTESSensitEasy];
           
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liveDetectStatusChange:) name:@"NTESLDNotificationStatusChange" object:nil];
     
-     [self.detector setTimeoutInterval:30];
+     [self.detector setTimeoutInterval:timeout];
      __weak __typeof(self)weakSelf = self;
-     [self.detector startLiveDetectWithBusinessID:@"74cb47d7d3174aadb75f4067f0280169" actionsHandler:^(NSDictionary * _Nonnull params) {
+     [self.detector startLiveDetectWithBusinessID:businessID actionsHandler:^(NSDictionary * _Nonnull params) {
          dispatch_async(dispatch_get_main_queue(), ^{
              NSString *actions = [params objectForKey:@"actions"];
              if (actions && actions.length != 0) {
