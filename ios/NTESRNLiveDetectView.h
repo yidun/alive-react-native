@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NTESRNLiveDetectView *)sharedInstance;
 
-- (void)startLiveDetect:(NSString *)businessID timeout:(int)timeout;
+- (void)initWithBusinessID:(NSString *)businessID timeout:(int)timeout;
+
+- (void)startLiveDetect;
 
 - (void)stopDetect;
 

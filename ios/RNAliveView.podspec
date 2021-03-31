@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNAliveView"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "RNAliveView"
   s.description  = "A short description of RNAliveView."
   s.homepage     = "https://github.com/yidun/alive-react-native"

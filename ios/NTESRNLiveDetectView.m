@@ -12,6 +12,10 @@
 @property (nonatomic, strong) NTESLiveDetectManager *detector;
 @property (nonatomic, copy) NSDictionary *params;
 
+@property (nonatomic, copy) NSString *businessID;
+
+@property (nonatomic, assign) int timeout;
+
 @end
 @implementation NTESRNLiveDetectView
 
@@ -25,16 +29,21 @@
     return sharedObject;
 }
 
-- (void)startLiveDetect:(NSString *)businessID timeout:(int)timeout {
+- (void)initWithBusinessID:(NSString *)businessID timeout:(int)timeout {
+    self.businessID = businessID;
+    self.timeout = timeout;
+}
+
+- (void)startLiveDetect {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self stopDetect];
     self.detector = [[NTESLiveDetectManager alloc] initWithImageView:self withDetectSensit:NTESSensitEasy];
           
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liveDetectStatusChange:) name:@"NTESLDNotificationStatusChange" object:nil];
     
-     [self.detector setTimeoutInterval:timeout];
+     [self.detector setTimeoutInterval:self.timeout];
      __weak __typeof(self)weakSelf = self;
-     [self.detector startLiveDetectWithBusinessID:businessID actionsHandler:^(NSDictionary * _Nonnull params) {
+     [self.detector startLiveDetectWithBusinessID:self.businessID actionsHandler:^(NSDictionary * _Nonnull params) {
          dispatch_async(dispatch_get_main_queue(), ^{
              NSString *actions = [params objectForKey:@"actions"];
              if (actions && actions.length != 0) {

@@ -22,8 +22,6 @@ RCT_EXPORT_MODULE(NTESRNLiveDetect)
 
 - (UIView *)view {
   NTESRNLiveDetectView *imageView = [NTESRNLiveDetectView sharedInstance];
-//  [imageView startLiveDetect];
-//  imageView.backgroundColor = [UIColor whiteColor];
   return imageView;
 }
 
