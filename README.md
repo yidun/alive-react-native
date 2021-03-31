@@ -25,6 +25,12 @@ react-native link react-native-alive-view
 ```
 
 ## 引入
+### 活体view
+```js
+const NTESRNLiveDetectView = requireNativeComponent('RNAliveView');
+```
+### 活体检测操作
+
 ```js
 import {NativeModules} from 'react-native';
 ```
