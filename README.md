@@ -10,18 +10,18 @@ react-native link react-native-alive-view
 ## 配置依赖
 在react-native工程对应的android/app/build.gradle 文件的android域中添加
 ```
-repositories {
-	        flatDir {
-	            dirs project(':react-native-alive-view').file('libs')
-	        }
-	}
-  
-packagingOptions {
+ repositories {
+        flatDir {
+            dirs project(':react-native-alive-view').file('libs')
+        }
+    }
+
+    packagingOptions {
         pickFirst  'lib/x86/libc++_shared.so'
         pickFirst  'lib/arm64-v8a/libc++_shared.so'
         pickFirst  'lib/x86_64/libc++_shared.so'
         pickFirst  'lib/armeabi-v7a/libc++_shared.so'
-    }  
+    }
 ```
 
 ## 引入
