@@ -58,3 +58,6 @@ import {NativeModules} from 'react-native';
 ### stopAlive()
 *方法描述：*
 关闭活体检测
+
+### 详见Demo
+https://github.com/yidun/alive-reactnative-plugin
