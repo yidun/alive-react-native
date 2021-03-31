@@ -30,6 +30,7 @@ react-native link react-native-alive-view
 const NTESRNLiveDetectView = requireNativeComponent('RNAliveView');
 ```
 回调
+```js
 onActionChange: (e: {nativeEvent: {actions: string}}) => void;
 onWarnChange: (e: {nativeEvent: {message?: string}}) => void;
 onStepChange: (e: {
@@ -38,6 +39,7 @@ onStepChange: (e: {
   onResultChange: (e: {
     nativeEvent: {message?: string; token?: string};
   }) => void;
+```
 
 ### 活体检测操作
 
