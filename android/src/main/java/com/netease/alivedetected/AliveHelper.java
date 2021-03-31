@@ -31,13 +31,14 @@ public class AliveHelper {
 
     public void setPreView(NISCameraPreview cameraPreview) {
         this.cameraPreview = cameraPreview;
+        AliveDetector.getInstance();//强制先加载so
     }
 
     public void init(ReactContext reactContext, String businessId, int timeOut) {
         this.reactContext = reactContext;
         if (cameraPreview != null) {
             AliveDetector.getInstance().init(reactContext, cameraPreview, businessId);
-            AliveDetector.getInstance().setTimeOut(timeOut);
+            AliveDetector.getInstance().setTimeOut(timeOut * 1000);
         }
     }
 
