@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNAliveView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "RNAliveView"
   s.description  = "A short description of RNAliveView."
   s.homepage     = "https://github.com/yidun/alive-react-native"
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/yidun/alive-react-native.git", :tag => "master" }
-  s.source_files  = "RNAliveView/**/*.{h,m}"
+  s.source_files  = "**/*.{h,m}"
   s.requires_arc = true
 
 
