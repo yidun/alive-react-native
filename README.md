@@ -1,45 +1,46 @@
 
 # 易盾活体检测RN接入使用文档
+在使用前请确保已申请到易盾活体检测的业务id
 
-## Getting started
-
-`$ npm install react-native-alive-view --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-alive-view`
-
-### Manual installation
-
-
-#### iOS
-
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-alive-view` and add `RNAliveView.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNAliveView.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
-
-#### Android
-
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.netease.alivedetected.RNAliveViewPackage;` to the imports at the top of the file
-  - Add `new RNAliveViewPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-alive-view'
-  	project(':react-native-alive-view').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-alive-view/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-alive-view')
-  	```
-
-
-## Usage
-```javascript
-import RNAliveView from 'react-native-alive-view';
-
-// TODO: What to do with the module?
-RNAliveView;
+## 导入插件
 ```
+npm install --save https://github.com/yidun/alive-react-native.git
+react-native link react-native-alive-view
+```
+## 配置依赖
+在react-native工程对应的android/app/build.gradle 文件的android域中添加
+```
+repositories {
+	        flatDir {
+	            dirs project(':react-native-alive-view').file('libs')
+	        }
+	}
   
+packagingOptions {
+        pickFirst  'lib/x86/libc++_shared.so'
+        pickFirst  'lib/arm64-v8a/libc++_shared.so'
+        pickFirst  'lib/x86_64/libc++_shared.so'
+        pickFirst  'lib/armeabi-v7a/libc++_shared.so'
+    }  
+```
+
+## 引入
+```js
+import {NativeModules} from 'react-native';
+```
+
+然后就可以使用原生模块NativeModules获取易盾活体检测RN对象NativeModules.RNAliveView
+
+## 活体检测API说明
+
+### startAlive()
+*方法描述：*
+开始活体检测
+
+*参数说明：*
+```
+businessId: '从易盾申请的id',
+callback -- 初始化结果回调
+
+// 返回参数
+success: 初始化是否成功
