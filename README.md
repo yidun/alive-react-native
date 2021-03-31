@@ -25,6 +25,24 @@ react-native link react-native-alive-view
 ```
 
 ## 引入
+### 活体view
+```js
+const NTESRNLiveDetectView = requireNativeComponent('RNAliveView');
+```
+回调
+```js
+onActionChange: (e: {nativeEvent: {actions: string}}) => void;
+onWarnChange: (e: {nativeEvent: {message?: string}}) => void;
+onStepChange: (e: {
+    nativeEvent: {message?: string; currentStep: number};
+  }) => void;
+  onResultChange: (e: {
+    nativeEvent: {message?: string; token?: string};
+  }) => void;
+```
+
+### 活体检测操作
+
 ```js
 import {NativeModules} from 'react-native';
 ```
@@ -36,11 +54,6 @@ import {NativeModules} from 'react-native';
 ### startAlive()
 *方法描述：*
 开始活体检测
-
-*参数说明：*
-```
-businessId: '从易盾申请的id',
-callback -- 初始化结果回调
 
 ### stopAlive()
 *方法描述：*

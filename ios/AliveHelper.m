@@ -15,6 +15,13 @@
 RCT_EXPORT_MODULE(AliveHelper)
 
 /**
+ *  初始化SDK
+ */
+RCT_EXPORT_METHOD(initWithBusinessID:(NSString *)businessID timeout:(int)timeout) {
+  [[NTESRNLiveDetectView sharedInstance] initWithBusinessID:businessID timeout:timeout];
+}
+
+/**
  *  相机开始工作
  */
 RCT_EXPORT_METHOD(startAlive) {
