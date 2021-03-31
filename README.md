@@ -42,5 +42,6 @@ import {NativeModules} from 'react-native';
 businessId: '从易盾申请的id',
 callback -- 初始化结果回调
 
-// 返回参数
-success: 初始化是否成功
+### stopAlive()
+*方法描述：*
+关闭活体检测
