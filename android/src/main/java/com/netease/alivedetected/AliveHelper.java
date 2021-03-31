@@ -99,6 +99,10 @@ public class AliveHelper {
         AliveDetector.getInstance().stopDetect();
     }
 
+    public void destroy() {
+        AliveDetector.getInstance().destroy();
+    }
+
     private void sendEvent2(String eventName, WritableMap event) {
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
                 id, eventName, event);

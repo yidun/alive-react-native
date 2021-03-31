@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+//    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.facebook.react:react-native:+'
     implementation(name: 'alive_detected_libary-release', ext: 'aar')
     implementation(name: 'openCVLibrary343-release', ext: 'aar')

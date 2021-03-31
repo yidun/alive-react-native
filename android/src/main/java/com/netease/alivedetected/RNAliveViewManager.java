@@ -37,7 +37,10 @@ public class RNAliveViewManager extends SimpleViewManager<FrameLayout> {
     @Override
     public void onDropViewInstance(FrameLayout preview) {
         Log.d(AliveHelper.TAG, "======onDropViewInstance======");
-        aliveHelper.stopDetected();
+        if (aliveHelper != null) {
+            aliveHelper.stopDetected();
+            aliveHelper.destroy();
+        }
     }
 
     private int getLayoutId(Context context) {
