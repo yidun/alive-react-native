@@ -27,7 +27,7 @@ react-native link react-native-alive-view
 ## 引入
 ### 活体view
 ```js
-const NTESRNLiveDetectView = requireNativeComponent('RNAliveView');
+const NTESRNLiveDetectView = requireNativeComponent('NTESRNLiveDetect');
 ```
 回调
 ```js
@@ -47,9 +47,14 @@ onStepChange: (e: {
 import {NativeModules} from 'react-native';
 ```
 
-然后就可以使用原生模块NativeModules获取易盾活体检测RN对象NativeModules.RNAliveView
+然后就可以使用原生模块NativeModules获取易盾活体检测RN对象NativeModules.AliveHelper
 
 ## 活体检测API说明
+
+### initWithBusinessID(String businessId,int timeOut)
+*方法描述：*
+初始化
+参数:businessId 易盾业务id timeOut 超时时间（单位秒）
 
 ### startAlive()
 *方法描述：*
