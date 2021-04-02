@@ -7,7 +7,12 @@
 npm install --save https://github.com/yidun/alive-react-native.git
 react-native link react-native-alive-view
 ```
-## 配置依赖
+也可以直接使用
+```
+npm install react-native-alive-view
+```
+
+## 配置依赖(Android必须)
 在react-native工程对应的android/app/build.gradle 文件的android域中添加
 ```
  repositories {
