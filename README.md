@@ -41,6 +41,7 @@ npm install react-native-alive-view
 ## 引入
 ### 活体view
 ```js
+import {requireNativeComponent} from 'react-native'
 const NTESRNLiveDetectView = requireNativeComponent('NTESRNLiveDetect');
 ```
 回调
@@ -61,7 +62,10 @@ onStepChange: (e: {
 import {NativeModules} from 'react-native';
 ```
 
-然后就可以使用原生模块NativeModules获取易盾活体检测RN对象NativeModules.AliveHelper
+然后就可以使用原生模块NativeModules获取易盾活体检测RN对象
+```js
+const AliveHelper = NativeModules.AliveHelper;
+```
 
 ## 活体检测API说明
 
