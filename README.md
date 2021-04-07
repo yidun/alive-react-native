@@ -27,6 +27,15 @@ npm install react-native-alive-view
         pickFirst  'lib/x86_64/libc++_shared.so'
         pickFirst  'lib/armeabi-v7a/libc++_shared.so'
     }
+    
+    权限配置
+    <uses-feature android:name="android.hardware.camera" />   //需要动态申请
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.camera.front.autofocus" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
 ## 引入
