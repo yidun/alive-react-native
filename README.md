@@ -44,7 +44,7 @@ npm install react-native-alive-view
 import {requireNativeComponent} from 'react-native'
 const NTESRNLiveDetectView = requireNativeComponent('NTESRNLiveDetect');
 ```
-回调
+ios 回调
 ```js
 onActionChange: (e: {nativeEvent: {actions: string}}) => void;
 onWarnChange: (e: {nativeEvent: {message?: string}}) => void;
@@ -56,6 +56,34 @@ onStepChange: (e: {
   }) => void;
 ```
 
+android 回调
+```js
+useEffect(() => {
+    const actionListener = DeviceEventEmitter.addListener(
+      'onActionChange',
+      handleActionChange,
+    );
+    const warnListener = DeviceEventEmitter.addListener(
+      'onWarnChange',
+      handleWarnChange,
+    );
+    const stepListener = DeviceEventEmitter.addListener(
+      'onStepChange',
+      handleStepChange,
+    );
+    const resultListener = DeviceEventEmitter.addListener(
+      'onResultChange',
+      handleResultChange,
+    );
+
+    return () => {
+      actionListener.remove();
+      warnListener.remove();
+      stepListener.remove();
+      resultListener.remove();
+    };
+  }, [handleResultChange]);
+```
 ### 活体检测操作
 
 ```js
