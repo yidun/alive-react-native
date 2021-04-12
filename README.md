@@ -15,6 +15,12 @@ npm install react-native-alive-view
 ## 配置依赖(Android必须)
 在react-native工程对应的android/app/build.gradle 文件的android域中添加
 ```
+ defaultConfig {
+        ndk {
+            abiFilters "armeabi-v7a","arm64-v8a" //必须添加，否则部分cpu架构机型异常
+        }
+ }
+
  repositories {
         flatDir {
             dirs project(':react-native-alive-view').file('libs')
@@ -22,13 +28,12 @@ npm install react-native-alive-view
     }
 
     packagingOptions {
-        pickFirst  'lib/x86/libc++_shared.so'
         pickFirst  'lib/arm64-v8a/libc++_shared.so'
-        pickFirst  'lib/x86_64/libc++_shared.so'
         pickFirst  'lib/armeabi-v7a/libc++_shared.so'
     }
-    
-    权限配置
+```
+AndroidManifest文件中添加权限配置
+```
     <uses-feature android:name="android.hardware.camera" />   //需要动态申请
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.front" />
