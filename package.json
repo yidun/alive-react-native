@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-alive-view",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A ReactNative AliveView Component for android and iOS",
   "main": "index.js",
   "scripts": {
