@@ -116,4 +116,4 @@ const AliveHelper = NativeModules.AliveHelper;
 关闭活体检测
 
 ### 详见Demo
-https://github.com/yidun/alive-reactnative-plugin
+https://github.com/yidun/alive_react_demo
