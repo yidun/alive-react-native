@@ -1,18 +1,27 @@
 
 {
-  "name": "react-native-alive-view",
+  "name": "@yidun/livedetect-plugin-rn",
   "version": "1.0.3",
-  "description": "A ReactNative AliveView Component for android and iOS",
+  "description": "yidun alive detect react-native plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "yidun",
+    "alive-detect",
+    "活体检测",
+    "易盾"
   ],
-  "author": "liulingfeng",
-  "license": "MIT",
+  "author": "yidun",
+  "license": "Apache 2.0",
   "peerDependencies": {
     "react-native": "^0.41.2"
+  },
+  "homepage": "https://github.com/yidun/alive-cordova-plugin",
+  "publishConfig": {
+    "access": "public"
   }
+
 }

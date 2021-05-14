@@ -4,12 +4,12 @@
 
 ## 导入插件
 ```
-npm install --save https://github.com/yidun/alive-react-native.git
-react-native link react-native-alive-view
+npm install --save https://github.com/yidun/livedetect-plugin-rn.git
+react-native link @yidun/livedetect-plugin-rn
 ```
 也可以直接使用
 ```
-npm install react-native-alive-view
+npm install @yidun/livedetect-plugin-rn
 ```
 
 ## 配置依赖(Android必须)
@@ -23,7 +23,7 @@ npm install react-native-alive-view
 
  repositories {
         flatDir {
-            dirs project(':react-native-alive-view').file('libs')
+            dirs project(':yidun_livedetect-plugin-rn').file('libs')
         }
     }
 
