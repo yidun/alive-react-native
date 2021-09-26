@@ -43,25 +43,27 @@
     
      [self.detector setTimeoutInterval:self.timeout];
      __weak __typeof(self)weakSelf = self;
-     [self.detector startLiveDetectWithBusinessID:self.businessID actionsHandler:^(NSDictionary * _Nonnull params) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             NSString *actions = [params objectForKey:@"actions"];
-             if (actions && actions.length != 0) {
-//                 NSLog(@"动作序列：%@", actions);
-               if ([NTESRNLiveDetectView sharedInstance].onActionChange) {
-                 [NTESRNLiveDetectView sharedInstance].onActionChange(@{
-                     @"actions": actions? : @""
-                   });
-               }
-             } else {
-             }
-         });
-     } completionHandler:^(NTESLDStatus status, NSDictionary * _Nullable params) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-           weakSelf.params = params;
-             [weakSelf showToastWithLiveDetectStatus:status];
-         });
-     }];
+      
+      [self.detector startLiveDetectWithBusinessID:self.businessID configURL:config actionsHandler:^(NSDictionary * _Nonnull params) {
+          dispatch_async(dispatch_get_main_queue(), ^{
+              NSString *actions = [params objectForKey:@"actions"];
+              if (actions && actions.length != 0) {
+                if ([NTESRNLiveDetectView sharedInstance].onActionChange) {
+                  [NTESRNLiveDetectView sharedInstance].onActionChange(@{
+                      @"actions": actions? : @""
+                    });
+                }
+              } else {
+              }
+          });
+      } checkingHandler:^{
+         
+      } completionHandler:^(NTESLDStatus status, NSDictionary * _Nullable params) {
+          dispatch_async(dispatch_get_main_queue(), ^{
+              weakSelf.params = params;
+              [weakSelf showToastWithLiveDetectStatus:status];
+          });
+      }];
   });
 }
 
