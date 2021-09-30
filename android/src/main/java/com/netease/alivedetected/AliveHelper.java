@@ -1,13 +1,11 @@
 package com.netease.alivedetected;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.netease.nis.alivedetected.ActionType;
 import com.netease.nis.alivedetected.AliveDetector;
 import com.netease.nis.alivedetected.DetectedListener;
@@ -77,6 +75,7 @@ public class AliveHelper {
 
             @Override
             public void onPassed(boolean isPassed, String token) {
+                Log.d(TAG, "检测通过--------->");
                 WritableMap event = Arguments.createMap();
                 if (isPassed) {
                     event.putString("message", "success");
@@ -88,7 +87,14 @@ public class AliveHelper {
             }
 
             @Override
+            public void onCheck() {
+                // 本地检测通过，进行云端检测
+                Log.d(TAG, "本地检测通过--------->");
+            }
+
+            @Override
             public void onError(int code, String msg, String token) {
+                Log.d(TAG, "异常--------->" + msg);
                 WritableMap event = Arguments.createMap();
                 event.putString("message", msg);
                 event.putString("token", token);
@@ -124,7 +130,7 @@ public class AliveHelper {
         for (ActionType actionType : actionCommands) {
             commands.append(actionType.getActionID());
         }
-        return commands == null ? "" : commands.toString();
+        return commands.toString();
     }
 
 }

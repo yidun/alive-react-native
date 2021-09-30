@@ -4,6 +4,7 @@ buildscript {
     repositories {
         jcenter()
         google()
+        mavenCentral()
     }
 
     dependencies {
@@ -39,14 +40,16 @@ android {
 repositories {
     mavenCentral()
     google()
+    mavenCentral()
 }
 
 dependencies {
 //    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.facebook.react:react-native:+'
-    implementation(name: 'alive_detected_libary-release', ext: 'aar')
-    implementation(name: 'openCVLibrary343-release', ext: 'aar')
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.squareup.okhttp3:okhttp:3.3.1'
+    api 'io.github.yidun:livedetect:3.0.6.2'
+    api 'com.google.code.gson:gson:2.8.6'
+    api('com.squareup.okhttp3:okhttp:3.12.12') {
+        force = true
+    }
 }
   
