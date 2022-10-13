@@ -1,7 +1,7 @@
 
 {
   "name": "@yidun/livedetect-plugin-rn",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "yidun alive detect react-native plugin",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "yidun",
   "license": "Apache 2.0",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": ">= 0.41.2"
   },
   "homepage": "https://github.com/yidun/alive-cordova-plugin",
   "publishConfig": {
