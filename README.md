@@ -139,13 +139,13 @@ AliveHelper.initWithBusinessID('businessId', timeout);
 AliveHelper.startAlive()
 ```
 
-### 2 停止活体检测
+### 3 停止活体检测
 
 #### 代码说明：
 ```
 AliveHelper.stopAlive();
 ```
-### 3 检测状态监听
+### 4 检测状态监听
 
 以下4个监听在 iOS 上生效，在 Android 不生效
 ```
