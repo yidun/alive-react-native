@@ -29,7 +29,7 @@ public class RNAliveViewModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void stopAlive() {
-        AliveDetector.getInstance().stopDetect();
+        aliveHelper.stopDetected();
     }
 
     @Override

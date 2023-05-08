@@ -37,11 +37,12 @@ public class AliveHelper {
         if (cameraPreview != null) {
             AliveDetector.getInstance().init(reactContext, cameraPreview, businessId);
             AliveDetector.getInstance().setTimeOut(timeOut * 1000);
+        } else {
+            Log.i("AliveHelper", "cameraPreview为空");
         }
     }
 
     public void startDetected() {
-        AliveDetector.getInstance().startDetect();
         AliveDetector.getInstance().setDetectedListener(new DetectedListener() {
             @Override
             public void onReady(boolean b) {
@@ -109,6 +110,7 @@ public class AliveHelper {
                 sendEvent("onResultChange", event);
             }
         });
+        AliveDetector.getInstance().startDetect();
     }
 
     public void stopDetected() {

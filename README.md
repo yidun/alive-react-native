@@ -4,7 +4,7 @@
 ## 平台支持（兼容性）
   | Android|iOS|  
   | ---- | ----- |
-  | 适用版本区间：4.4 - 11.0|适用版本区间：9 - 14| 
+  | 适用版本区间：4.4以上|适用版本区间：9 - 14| 
 
 ## 环境准备
 
@@ -115,21 +115,30 @@ class Demo extends Component {
 
 ## SDK 方法说明
 
-### 1 开始活体检测验证
+### 1 初始化
 
 #### 代码说明：
 ```
 import {NativeModules} from 'react-native';
 const AliveHelper = NativeModules.AliveHelper;//对象创建
-AliveHelper.startAlive('businessId', timeout)
+AliveHelper.initWithBusinessID('businessId', timeout);
 ```
+
 #### 参数说明：
 *  options基础参数：
 
-    |参数|类型|是否必填|默认值|描述|
-    |----|----|--------|------|----|
-    |businessId|String|是|无|易盾分配的业务id|
-	|  timeout|Number|是|30秒|活体检测超时时间|
+   |参数|类型|是否必填|默认值| 描述         |
+   |----|----|--------|------------|----|
+   |businessId|String|是|无| 易盾分配的业务id  |
+   |timeout|Number|是|30秒| 活体检测超时时间/s |
+
+### 2 开始活体检测验证
+
+#### 代码说明：
+```
+AliveHelper.startAlive()
+```
+
 ### 2 停止活体检测
 
 #### 代码说明：
