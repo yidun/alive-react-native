@@ -1,7 +1,7 @@
 
 {
   "name": "@yidun/livedetect-plugin-rn",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "yidun alive detect react-native plugin",
   "main": "index.js",
   "scripts": {
