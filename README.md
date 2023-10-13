@@ -63,6 +63,25 @@ const requestCameraPermission = async () => {
   }
 };
 ```
+
+release 包需要添加混淆规则
+
+```
+-keep class com.netease.nis.alivedetected.entity.*{*;}
+-keep class com.netease.nis.alivedetected.AliveDetector  {
+    public <methods>;
+    public <fields>;
+}
+-keep class com.netease.nis.alivedetected.DetectedEngine{
+    native <methods>;
+}
+-keep class com.netease.nis.alivedetected.NISCameraPreview  {
+    public <methods>;
+}
+-keep class com.netease.nis.alivedetected.DetectedListener{*;}
+-keep class com.netease.nis.alivedetected.ActionType{ *;}
+```
+
 #### iOS 配置
 在 flutter 工程对应的 example/ios/Runner/info.plist 里 ，添加
 ```
